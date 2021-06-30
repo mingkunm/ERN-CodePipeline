@@ -8,7 +8,9 @@ function App() {
     async function checkAPIRoute() {
       try {
         const host = process.env.REACT_APP_HOST || "http://localhost:5000";
-        const response = await fetch(`${host}/api`);
+        const response = await fetch(
+          `http://ec2-44-194-64-34.compute-1.amazonaws.com/api`
+        );
         if (response.status === 200) {
           setResponse("a Success!!!");
         }
@@ -35,6 +37,7 @@ function App() {
         ></a>
         <h1>The API call is...</h1>
         <h3>{response}</h3>
+        <h3>{process.env.REACT_APP_HOST}</h3>
       </header>
     </div>
   );
