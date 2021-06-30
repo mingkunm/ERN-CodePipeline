@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>ERM Stack APP</h1>
+        <h1>ERM Stack APP with CD on AWS!</h1>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -34,7 +34,7 @@ function App() {
           rel="noopener noreferrer"
         ></a>
         <h1>The API call is...</h1>
-        <h2>{response}</h2>
+        <h3>{response}</h3>
       </header>
     </div>
   );
