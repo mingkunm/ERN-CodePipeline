@@ -13,7 +13,7 @@ function App() {
           setResponse("a Success!!!");
         }
       } catch (err) {
-        setResponse("Oops, something went wrong...");
+        setResponse(`Oops, something went wrong... Error: ${err}`);
       }
     }
     checkAPIRoute();
