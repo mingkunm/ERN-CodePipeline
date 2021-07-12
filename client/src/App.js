@@ -7,10 +7,11 @@ function App() {
   useEffect(() => {
     async function checkAPIRoute() {
       try {
-        const host = process.env.REACT_APP_HOST || "http://localhost:5000";
-        const response = await fetch(
-          `http://ec2-44-194-64-34.compute-1.amazonaws.com/api`
-        );
+        let host = null;
+        window.location.hostname === "localhost"
+          ? (host = "http://localhost:5000/api")
+          : (host = "http://ec2-44-194-64-34.compute-1.amazonaws.com/api");
+        const response = await fetch(host);
         if (response.status === 200) {
           setResponse("a Success!!!");
         }
@@ -21,10 +22,13 @@ function App() {
     checkAPIRoute();
   }, [response]);
 
+  console.log(window.location.hostname === "localhost");
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>ERM Stack APP with CD on AWS!</h1>
+        <h2>CD Check...</h2>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -37,7 +41,6 @@ function App() {
         ></a>
         <h1>The API call is...</h1>
         <h3>{response}</h3>
-        <h3>{process.env.REACT_APP_HOST}</h3>
       </header>
     </div>
   );
